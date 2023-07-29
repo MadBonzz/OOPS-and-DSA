@@ -97,16 +97,15 @@ int main(){
 using namespace std;
 
 void pattern(int num, int n, int s, bool flag){
-    if(n <= 0){
-        flag = !flag;
-        cout<<n<<" ";
-        pattern(num, n+s, s, flag);
+    if(n <= 0 && flag == true){
+        flag = false;
+        pattern(num, n, s, flag);
     }
     if(flag == false && n == num){
         cout<<n<<" ";
         return;
     }
-    if(flag == true){
+    if(flag == true && n > 0){
         cout<<n<<" ";
         pattern(num, n-s, s, flag);
     }else{
