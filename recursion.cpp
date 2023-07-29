@@ -148,7 +148,7 @@ int main(){
     cout<<total<<endl;
 }*/
 
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 
 int count(int n, int v){
@@ -167,4 +167,4 @@ int main(){
     cin>>num>>val;
     int total = count(num, val);
     cout<<total<<endl;
-}
+}*/
