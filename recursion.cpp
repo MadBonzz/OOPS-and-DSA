@@ -93,3 +93,34 @@ int main(){
     cout<<final<<endl;
 }*/
 
+#include<iostream>
+using namespace std;
+
+void pattern(int num, int n, int s, bool flag){
+    if(n <= 0){
+        flag = !flag;
+        cout<<n<<" ";
+        pattern(num, n+s, s, flag);
+    }
+    if(flag == false && n == num){
+        cout<<n<<" ";
+        return;
+    }
+    if(flag == true){
+        cout<<n<<" ";
+        pattern(num, n-s, s, flag);
+    }else{
+        cout<<n<<" ";
+        pattern(num, n+s, s, flag);
+    }
+}
+
+int main(){
+    int number;
+    cin>>number;
+    int step;
+    cin>>step;
+    bool flag = true;
+    pattern(number, number, step, flag);
+    
+}
