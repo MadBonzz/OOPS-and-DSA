@@ -93,7 +93,7 @@ int main(){
     cout<<final<<endl;
 }*/
 
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 
 void pattern(int num, int n, int s, bool flag){
@@ -124,4 +124,27 @@ int main(){
     bool flag = true;
     pattern(16, 16, 5, flag);
     
+}*/
+
+/*#include<iostream>
+using namespace std;
+
+int sum(int n, int m){
+    if(m == 1){
+        int sum = 0;
+        for(int i = 1; i <= n; i++){
+            sum += i;
+        }
+        return sum;
+    }
+    return sum(sum(n, m-1),1);
 }
+
+int main(){
+    int n, m;
+    cin>>n>>m;
+
+    int total = sum(n, m);
+    cout<<total<<endl;
+}*/
+
