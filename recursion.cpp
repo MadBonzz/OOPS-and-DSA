@@ -148,3 +148,23 @@ int main(){
     cout<<total<<endl;
 }*/
 
+#include<iostream>
+using namespace std;
+
+int count(int n, int v){
+    int total = 0;
+    if(n == 1 && v >= 0){
+        return 1;
+    }
+    for(int i = 0; i <= v; i++){
+        total += count(n-1, v-i);
+    }
+    return total;
+}
+
+int main(){
+    int num, val;
+    cin>>num>>val;
+    int total = count(num, val);
+    cout<<total<<endl;
+}

@@ -26,7 +26,7 @@ int main(){
     cout<<player2->name<<" "<<player2->position<<" "<<player2->age<<endl;
 }*/
 
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 
 // Constructor and Destructor
@@ -67,4 +67,29 @@ int main(){
     player neymar = messi;
     cout<<neymar.goals<<" "<<neymar.assist<<endl;
 
-}
+}*/
+
+/*#include<iostream>
+using namespace std;
+
+// Encapsulation
+
+class shourya{
+    float cgpa;
+
+    public:
+    void set_cgpa(float n){
+        cgpa = n;
+    }
+
+    float get_cgpa(){
+        return cgpa;
+    }
+};
+
+int main(){
+    shourya madbonze;
+    madbonze.set_cgpa(8.95);
+    cout<<madbonze.get_cgpa();
+}*/
+
