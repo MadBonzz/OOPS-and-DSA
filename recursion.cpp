@@ -101,25 +101,27 @@ void pattern(int num, int n, int s, bool flag){
         flag = false;
         pattern(num, n, s, flag);
     }
-    if(flag == false && n == num){
+    else if(flag == false && n == num){
         cout<<n<<" ";
         return;
     }
-    if(flag == true && n > 0){
+    else if(flag == true && n > 0){
         cout<<n<<" ";
         pattern(num, n-s, s, flag);
     }else{
         cout<<n<<" ";
         pattern(num, n+s, s, flag);
     }
+
+    return;
 }
 
 int main(){
-    int number;
-    cin>>number;
-    int step;
-    cin>>step;
+    // int number;
+    // cin>>number;
+    // int step;
+    // cin>>step;
     bool flag = true;
-    pattern(number, number, step, flag);
+    pattern(16, 16, 5, flag);
     
 }
