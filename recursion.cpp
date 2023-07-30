@@ -290,7 +290,7 @@ int main(){
     (result == number) ? cout<<"Yes"<<endl : cout<<"No"<<endl;
 }*/
 
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 
 int min_cost(int *arr, int idx, int n){
@@ -316,4 +316,26 @@ int main(){
 
     int cost = min_cost(height, 0, n);
     cout<<cost<<endl;
+}*/
+
+/*#include<iostream>
+using namespace std;
+
+// Prime Number using Recursion
+
+bool primenum(int i, int j = 2){
+    if(j * j > i){
+        return true;
+    }
+    return (i % j != 0) && primenum(i, j+1);
 }
+
+int main(){
+    int num;
+    cin>>num;
+    cout<<primenum(num)<<endl;
+}*/
+
+#include<iostream>
+using namespace std;
+
