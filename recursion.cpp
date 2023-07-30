@@ -168,3 +168,25 @@ int main(){
     int total = count(num, val);
     cout<<total<<endl;
 }*/
+
+#include<iostream>
+using namespace std;
+
+// Increasing Sequence
+
+void sequence(int n){
+    if(n == 1){
+        cout<<n<<" ";
+        return;
+    }
+    sequence(n-1);
+    cout<<n<<" ";
+}
+
+int main(){
+    int number;
+    cout<<"Enter a number : ";
+    cin>>number;
+
+    sequence(number);
+}
