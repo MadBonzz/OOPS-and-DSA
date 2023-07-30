@@ -169,7 +169,7 @@ int main(){
     cout<<total<<endl;
 }*/
 
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 
 // Increasing Sequence
@@ -189,4 +189,131 @@ int main(){
     cin>>number;
 
     sequence(number);
+}*/
+
+/*#include<iostream>
+using namespace std;
+
+// k multiples of n
+
+void multiples(int n, int k){
+    if(k < 1){
+        return;
+    }
+    multiples(n, k-1);
+    cout<<n*k<<" ";
+}
+
+int main(){
+    int number, multiple;
+    cin>>number>>multiple;
+    multiples(number, multiple);
+}*/
+
+/*#include<iostream>
+using namespace std;
+
+// Sum with alternate sign
+
+int altsum(int n){
+    if(n < 1) return 0;
+    return altsum(n-1) + ((n % 2 == 0) ? -n : n);
+}
+
+int main(){
+    int number;
+    cin>>number;
+    int sum = altsum(number);
+    cout<<sum<<endl;
+}*/
+
+/*#include<iostream>
+using namespace std;
+
+// Product of numbers using recursion
+
+int product(int n, int m){
+    if(m == 0) return 0;
+    return product(n, m-1) + n;
+}
+
+int main(){
+    int num1, num2;
+    cin>>num1>>num2;
+    int prod = product(num1, num2);
+    cout<<prod<<endl;
+}*/
+
+/*#include<iostream>
+using namespace std;
+
+// GCD using Recursion
+
+int gcd(int n, int m){
+    if(n == m){
+        return n;
+    }
+
+    return ((n > m) ? gcd(n - m, m) : gcd(n, m - n));
+}
+
+int main(){
+    int num1, num2;
+    cin>>num1>>num2;
+
+    int hcf = gcd(num1, num2);
+    cout<<hcf<<endl;
+}*/
+
+/*#include<iostream>
+#include<cmath>
+using namespace std;
+
+// Armstrong number using recursion
+
+int armstrong(int n, int d){
+    if(n == 0) return 0;
+    return armstrong(n / 10, d) + pow(n % 10, d);
+}
+
+int main(){
+    int number;
+    cin>>number;
+    int temp = number;
+    int digits = 0;
+    while(temp > 0){
+        digits++;
+        temp /= 10;
+    }
+
+    int result = armstrong(number, digits);
+    (result == number) ? cout<<"Yes"<<endl : cout<<"No"<<endl;
+}*/
+
+#include<iostream>
+using namespace std;
+
+int min_cost(int *arr, int idx, int n){
+    if(idx == n-1){
+        return 0;
+    }else if(idx == n-2){
+        return abs(arr[idx + 1] - arr[idx]);
+    }
+    if(min_cost(arr, idx+1, n) + (abs(arr[idx+1] - arr[idx])) >= min_cost(arr, idx+2, n) + (abs(arr[idx+2] - arr[idx]))){
+        return min_cost(arr, idx+2, n) + (abs(arr[idx+2] - arr[idx]));
+    }else{
+        return min_cost(arr, idx+1, n) + (abs(arr[idx+1] - arr[idx]));
+    }
+}
+
+int main(){
+    int n;
+    cin>>n;
+    int height[n];
+    for(int i = 0; i < n; i++){
+        cin>>height[i];
+    }
+
+    int cost = min_cost(height, 0, n);
+    cout<<cost<<endl;
 }
