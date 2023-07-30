@@ -336,6 +336,54 @@ int main(){
     cout<<primenum(num)<<endl;
 }*/
 
-#include<iostream>
+/*#include<iostream>
 using namespace std;
+
+// Decimal to Binary using Recursion
+
+void binary(int n){
+    if(n == 0){
+        return;
+    }
+
+    binary(n / 2);
+    (n % 2 == 0)? cout<<"0" : cout<<"1";
+    return;
+}
+
+int main(){
+    int number;
+    cin>>number;
+    binary(number);
+}*/
+
+/*#include<iostream>
+#include<cmath>
+using namespace std;
+
+// Binary to Gray using Recursion
+
+int gray(int n, int i){
+    int a, b;
+    int result = 0;
+    if(n != 0){
+        a = n % 10;
+        n /= 10;
+        b = n % 10;
+
+        if((a & ~b) == 1 || (~a & b) == 1){
+            result = (int)(result + pow(10, i));
+        }
+        return gray(n, ++i) + result;
+    }
+    return result;
+}
+
+int main(){
+    int num;
+    cin>>num;
+    
+    int result = gray(num, 0);
+    cout<<result<<endl;
+}*/
 
