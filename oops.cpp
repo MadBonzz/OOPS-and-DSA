@@ -93,3 +93,26 @@ int main(){
     cout<<madbonze.get_cgpa();
 }*/
 
+#include<iostream>
+using namespace std;
+
+// Encapsulation
+
+class student{
+    string name;
+    string reg_no;
+public:
+    void input(){
+        cin>>name>>reg_no;
+    }
+    void display(){
+        cout<<name<<" "<<reg_no;
+    }
+};
+
+int main(){
+    student shourya;
+    shourya.input();
+    shourya.display();
+    return 0;
+}
