@@ -387,3 +387,100 @@ int main(){
     cout<<result<<endl;
 }*/
 
+/*#include<iostream>
+using namespace std;
+
+// Cheching if element exists in array
+
+bool check(int *arr, int n, int m, int idx=0){
+    if(idx == n){
+        return false;
+    }
+    return ((arr[idx] == m ) | check(arr, n, m, ++idx));
+}
+
+int main(){
+    int size;
+    cin>>size;
+    int arr[size];
+    for(int i = 0; i < size; i++){
+        cin>>arr[i];
+    }
+
+    int target;
+    cin>>target;
+
+    cout<<check(arr, size, target, 0);
+}*/
+
+/*#include<iostream>
+using namespace std;
+
+// Printing sum of all subsets of an array
+
+void subsetsum(int *arr, int n, int sum, int idx = 0){
+    if(idx == n){
+        cout<<sum<<" ";
+        return;
+    }
+    subsetsum(arr, n, sum+arr[idx], idx + 1);
+    subsetsum(arr, n, sum, idx + 1);
+}
+
+int main(){
+    int size;
+    cin>>size;
+
+    int arr[size];
+    for(int i = 0; i < size; i++){
+        cin>>arr[i];
+    }
+
+    subsetsum(arr, size, 0, 0);
+}*/
+
+/*#include<iostream>
+using namespace std;
+
+// Finding number of paths from top left to bottom right
+
+int countpaths(int *arr, int n, int m, int idx_i, int idx_j){
+    if((idx_i == n-1) && (idx_j == m-1)) return 1;
+    if((idx_i == n) || (idx_j == m)) return 0;
+
+    return countpaths(arr, n, m, idx_i+1, idx_j) + countpaths(arr, n, m, idx_i, idx_j + 1);
+}
+
+int main(){
+    int nrow, ncol;
+    cin>>nrow>>ncol;
+
+    int matrix[nrow][ncol];
+
+    int counts = countpaths(matrix[0], nrow, ncol, 0, 0);
+    cout<<counts<<endl;
+}*/
+
+#include<iostream>
+using namespace std;
+
+// Printing indices where target is present
+
+void indexes(int *arr, int target, int n, int idx = 0){
+        if(idx == n) return;
+        ((arr[idx] == target) ? cout<<idx<<" " : cout<<"");
+        return indexes(arr, target, n, ++idx);
+    }
+
+int main(){
+    int size;
+    cin>>size;
+    int arr[size];
+    for(int i = 0; i < size; i++){
+        cin>>arr[i];
+    }
+    int target;
+    cin>>target;
+    indexes(arr, target, size, 0);
+}
+
