@@ -580,4 +580,55 @@ int main(){
     }
 }*/
 
+/*#include<iostream>
+#include<vector>
+using namespace std;
+
+// Printing all possible combinations of r elements
+
+void printcombs(int *arr, int n, int r, int idx, vector<int> &temp, vector<vector<int>> &combs){
+    if(temp.size() == r){
+        combs.push_back(temp);
+        return;
+    }else if(idx == n){
+        return;
+    }
+
+    temp.push_back(arr[idx]);
+    printcombs(arr, n, r, idx+1, temp, combs);
+
+    temp.pop_back();
+    printcombs(arr, n, r, idx+1, temp, combs);
+    return;
+
+    }
+
+int main(){
+    int size;
+    cin>>size;
+
+    int arr[size];
+    for(int i = 0; i < size; i++){
+        cin>>arr[i];
+    }
+
+    int r;
+    cin>>r;
+
+    vector<int> data;
+    vector<vector<int>> comb;
+
+    printcombs(arr, size, r, 0, data, comb);
+
+    cout<<comb.size();
+
+    for(int i = 0; i < comb.size(); i++){
+        for(int j = 0; j < r; j++){
+            cout<<comb[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}*/
+    
+
 
