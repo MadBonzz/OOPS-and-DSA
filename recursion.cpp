@@ -461,7 +461,7 @@ int main(){
     cout<<counts<<endl;
 }*/
 
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 
 // Printing indices where target is present
@@ -482,5 +482,102 @@ int main(){
     int target;
     cin>>target;
     indexes(arr, target, size, 0);
+}*/
+
+/*#include<iostream>
+using namespace std;
+
+// Sum Triangle of an array
+
+void sumtriangle(int *arr, int n, int idx = 0){
+    if(n == 0){
+        return;
+    }
+    if(idx == n){
+        cout<<endl;
+        return sumtriangle(arr, n-1, 0);
+    }
+
+    cout<<arr[idx];
+    arr[idx] += arr[idx+1];
+    return sumtriangle(arr, n, ++idx);
 }
+
+int main(){
+    int size;
+    cin>>size;
+
+    int arr[size];
+    for(int i = 0; i < size; i++){
+        cin>>arr[i];
+    }
+
+    sumtriangle(arr, size, 0);
+}*/
+
+/*#include<iostream>
+#include<vector>
+using namespace std;
+
+// Subsequences of a string
+
+void subsequence(string s, int n, int idx, vector<string> *v, string res){
+    if(idx == n){
+        v->push_back(res);
+        return;
+    }
+    subsequence(s, n, idx + 1, v, res+s[idx]);
+    subsequence(s, n, idx + 1, v, res);
+}
+
+int main(){
+    string sequence;
+    cin>>sequence;
+
+    int size = sequence.size();
+
+    vector<string> sub;
+    subsequence(sequence, size, 0, &sub, "");
+
+    for(int i = 0; i < sub.size(); i++){
+        cout<<sub[i]<<" ";
+    }
+}*/
+
+/*#include<iostream>
+#include<vector>
+using namespace std;
+
+// Printing combinations based on old keypad
+
+void printcombs(string s, int idx, string res, vector<string> &v, vector<string> &patt){
+    if(idx == s.size()){
+        v.push_back(res);
+        return;
+    }
+    int dig = s[idx] - '0';
+    if(dig <= 1){
+        printcombs(s, idx + 1, res, v, patt);
+        return;
+    }
+
+    for(int j = 0; j < patt[dig].size(); j++){
+        printcombs(s, idx+1, res + patt[dig][j], v, patt);
+    }
+    return;
+}
+
+int main(){
+    string nums;
+    cin>>nums;
+
+    vector<string> str = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    vector<string> combs;
+    printcombs(nums, 0, "", combs, str);
+
+    for(int i = 0; i < combs.size(); i++){
+        cout<<combs[i]<<" ";
+    }
+}*/
+
 
