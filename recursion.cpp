@@ -629,6 +629,107 @@ int main(){
         cout<<endl;
     }
 }*/
+
+/*#include<iostream>
+#include<vector>
+using namespace std;
+
+// Printing alternate combination in increasing order
+
+void combinations(int *arr1, int *arr2, int m, int n, int idx_m, int idx_n, vector<vector<int>> &combs, vector<int> &temp){
+    if(idx_m == m || idx_n == n){
+        return;
+    }
+    if(temp.size() % 2 == 0 && temp.size() > 0){
+        combs.push_back(temp);
+        temp.push_back(arr1[idx_m]);
+        idx_m+=1;
+    }else if(temp.size() % 2 == 0){
+        temp.push_back(arr1[idx_m]);
+        idx_m+=1;
+    }else{
+        if(arr2[idx_n] > arr1[idx_m]){
+            temp.push_back(arr2[idx_n]);
+            return combinations(arr1, arr2, m, n, idx_m, idx_n+1, combs, temp);;
+        }else{
+            return combinations(arr1, arr2, m, n, idx_m, idx_n+1, combs, temp);
+        }
+    }
+
+    return combinations(arr1, arr2, m, n, idx_m, idx_n, combs, temp);
+}
+
+int main(){
+    int m, n;
+    cin>>m>>n;
+
+    int arr1[m];
+    int arr2[n];
+    for(int i = 0; i < m; i++){
+        cin>>arr1[i];
+    }
+    for(int j = 0; j < n; j++){
+        cin>>arr2[j];
+    }
+
+    vector<vector<int>> all;
+    vector<int> temp;
+
+    combinations(arr1, arr2, m, n, 0, 0, all, temp);
+
+    cout<<all.size()<<endl;
+
+    for(int i = 0; i < all.size(); i++){
+        for(int j = 0; j < all[i].size(); j++){
+            cout<<all[i][j]<<" ";
+        }cout<<endl;
+    }
+}*/
+
+/*#include<iostream>
+using namespace std;
+
+// Removing Consecutinve Duplicate characters
+
+string remove(string s, string res, int idx){
+    if(idx == s.size()){
+        return res;
+    }
+
+    if(s[idx] != res[res.size() - 1]){
+        res += s[idx];
+    }
+
+    return remove(s, res, idx+1);
+}
+
+int main(){
+    string original;
+    cin>>original;
+
+    string result = remove(original, "", 0);
+    cout<<result<<endl;
+}*/
+
+/*#include<iostream>
+using namespace std;
+
+// Reversing a string using recursion
+
+string reverse(string s, int idx){
+    if(idx == s.size()){
+        return "";
+    }
+    return (reverse(s, idx+1) + s[idx]);
+}
+
+int main(){
+    string original;
+    cin>>original;
+
+    string result = reverse(original, 0);
+    cout<<result<<endl;
+}*/
     
 
 
