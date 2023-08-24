@@ -81,7 +81,7 @@ int main(){
     }
 }*/
 
-#include<stdio.h>
+/*#include<stdio.h>
 
 //Finding first occurence of an element
 
@@ -120,4 +120,39 @@ int main(){
     }else{
         printf("The first index of element is %d", ans);
     }
+}*/
+
+#include<stdio.h>
+
+// Largest number with square less than target
+
+int largestRoot(int *arr, int target, int low, int high){
+    int ans;
+    while(low <= high){
+        int mid = low + ((high - low) / 2);
+        if((arr[mid] * arr[mid]) == target){
+            ans = mid;
+            break;
+        }else if((arr[mid] * arr[mid]) < target){
+            ans = mid;
+            low = mid+1;
+        }else{
+            high = mid - 1;
+        }
+    }
+    return ans;
+}
+
+int main(){
+    int target;
+    printf("Enter the target element ");
+    scanf("%d", &target);
+
+    int arr[target];
+    for(int i = 0; i < target; i++){
+        arr[i] = i+1;
+    }
+
+    int ans = largestRoot(arr, target, 0, target - 1);
+    printf("The largest element with square less than number is %d", arr[ans]);
 }
