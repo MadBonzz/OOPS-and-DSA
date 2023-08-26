@@ -122,7 +122,7 @@ int main(){
     }
 }*/
 
-#include<stdio.h>
+/*#include<stdio.h>
 
 // Largest number with square less than target
 
@@ -155,4 +155,147 @@ int main(){
 
     int ans = largestRoot(arr, target, 0, target - 1);
     printf("The largest element with square less than number is %d", arr[ans]);
+}*/
+
+/*#include<stdio.h>
+
+// First and Last occurence of an element
+
+int lowerbound(int *arr, int target, int low, int high){
+    int ans;
+    while(low <= high){
+        int mid = low + ((high - low) / 2);
+        if(arr[mid] >= target){
+            ans = mid;
+            high = mid - 1;
+        }else{
+            low = mid+1;           
+        }
+    }
+    return ans;
+}
+
+int upperbound(int *arr, int target, int low, int high){
+    int ans;
+    while(low <= high){
+        int mid = low + ((high - low) / 2);
+        if(arr[mid] > target){
+            ans = mid;
+            high = mid - 1;
+        }else{
+            low = mid + 1;
+        }
+    }
+    return ans;
+}
+
+int main(){
+   int size;
+    printf("Enter the size of the array : ");
+    scanf("%d", &size);
+
+    int arr[size];
+    printf("Input the array : ");
+    for(int i = 0; i < size; i++){
+        scanf("%d", &arr[i]);
+    }
+
+    int target;
+    printf("Enter the number to search : ");
+    scanf("%d", &target);
+
+    int lower = lowerbound(arr, target, 0, size - 1);
+    if(lower == -1){
+        printf("Element is not in array ");
+    }else{
+        int upper = upperbound(arr, target, 0, size-1);
+        printf("The lower and upper bound are %d and %d", lower, upper-1);
+    }
+}*/
+
+/*#include<stdio.h>
+
+// Minimum value of rotated sorted array
+
+int minval(int *arr, int size){
+    if(size == 1) return 0;
+    int low = 0;
+    int high = size - 1;
+    if(arr[low] < arr[high]) return low;
+    while(low <= high){
+        int mid = low + (high-low) / 2;
+        if(arr[mid] > arr[mid+1]) return mid + 1;
+        if(arr[mid] < arr[mid - 1]) return mid;
+        if(arr[mid] < arr[low]){
+            high = mid - 1;
+        }else{
+            low = mid + 1;
+        }
+    }
+}
+
+int main(){
+    int size;
+    printf("Enter the size of the array : ");
+    scanf("%d", &size);
+
+    int arr[size];
+    printf("Input the array : ");
+    for(int i = 0; i < size; i++){
+        scanf("%d", &arr[i]);
+    }
+    int min_index = minval(arr, size);
+    printf("The minimum value of the array is %d", arr[min_index]);
+}*/
+
+#include<stdio.h>
+
+// Finding element in Rotated Sorted Array
+
+int find(int *arr, int target, int low, int high){
+    int index = -1;
+    while(low <= high){
+        int mid = low + (high - low) / 2;
+        if(target == arr[mid]){
+            index = mid;
+            break;
+        }
+        if(arr[mid] > arr[low]){
+            if((arr[mid] > target) && (arr[low] <= target)){
+                high = mid - 1;
+            }else{
+                low = mid + 1;
+            }
+        }else{
+            if((arr[mid] < target) && (arr[high]>= target)){
+                low = mid + 1;
+            }else{
+                high = mid - 1;
+            }
+        }
+    }
+    return index;
+}
+
+int main(){
+    int size;
+    printf("Enter the size of the array : ");
+    scanf("%d", &size);
+
+    int arr[size];
+    printf("Input the array : ");
+    for(int i = 0; i < size; i++){
+        scanf("%d", &arr[i]);
+    }
+
+    int target;
+    printf("Enter the target element ");
+    scanf("%d", &target);
+
+    int ans = find(arr, target, 0, size - 1);
+    if(ans == -1){
+        printf("Element is not in array");
+    }else{
+        printf("Element is at index %d", ans);
+    }
 }
