@@ -38,7 +38,7 @@ int main(){
     printlist(nodes[0]);
 }*/
 
-#include<stdio.h>
+/*#include<stdio.h>
 #include<stdlib.h>
 
 struct Node{
@@ -168,6 +168,90 @@ int main(){
 
     // Printing the Linked List Again
     printf("Linked List after deleting the index node : ");
+    printLL(head);
+    printf("\n");
+}*/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+// Reversing a linked list
+
+struct Node{
+    int data;
+    struct Node * ptr;
+};
+
+struct Node * reverse(struct Node ** head){
+    struct Node * prev = NULL;
+    struct Node * current = *head;
+    struct Node * next = NULL;
+
+    while(current != NULL){
+        next = current->ptr;
+        current->ptr = prev;
+        prev = current;
+        current = next;
+    }
+
+    return prev;
+}
+
+// Creating a function for printing the linked list
+void printLL(struct Node * head){
+    while(head != NULL){
+        printf("%d ", head->data);
+        head = head->ptr;
+    }
+}
+
+
+int main(){
+    struct Node * head;
+    struct Node * second;
+    struct Node * third;
+    struct Node * fourth;
+    struct Node * fifth;
+
+    head = (struct Node *) malloc(sizeof(struct Node));
+    second = (struct Node *) malloc(sizeof(struct Node));
+    third = (struct Node *) malloc(sizeof(struct Node));
+    fourth = (struct Node *) malloc(sizeof(struct Node));
+    fifth = (struct Node *) malloc(sizeof(struct Node));
+
+    // Setting up the first Node of the Linked List
+    printf("Enter the data for node : ");
+    scanf("%d", &head->data);
+    head->ptr = second;
+
+    // Setting up the second Node of the Linked List
+    printf("Enter the data for node : ");
+    scanf("%d", &second->data);
+    second->ptr = third;
+
+    // Setting up the third Node of the Linked List
+    printf("Enter the data for node : ");
+    scanf("%d", &third->data);
+    third->ptr = fourth;
+
+    // Setting up the fourth Node of the Linked List
+    printf("Enter the data for node : ");
+    scanf("%d", &fourth->data);
+    fourth->ptr = fifth;
+
+    // Setting up the last Node of the Linked List
+    printf("Enter the data for node : ");
+    scanf("%d", &fifth->data);
+    fifth->ptr = NULL;
+
+
+    // Printing the Linked List before reversing
+    printf("The original linked list is : ");
+    printLL(head);
+    printf("\n");
+
+    head = reverse(&head);
+    printf("The reversed linked list is : ");
     printLL(head);
     printf("\n");
 }

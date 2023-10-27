@@ -248,7 +248,7 @@ int main(){
     printf("The minimum value of the array is %d", arr[min_index]);
 }*/
 
-#include<stdio.h>
+/*#include<stdio.h>
 
 // Finding element in Rotated Sorted Array
 
@@ -298,4 +298,4 @@ int main(){
     }else{
         printf("Element is at index %d", ans);
     }
-}
+}*/
